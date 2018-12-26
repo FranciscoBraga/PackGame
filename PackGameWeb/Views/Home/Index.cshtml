@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PackGameData.DataContext.Jogo>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+  
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+
+    </div>
+    @foreach (var item in Model)
+    {
+
+       var nomeSemEspaco = item.nome.Replace(" ", "");
+        nomeSemEspaco = nomeSemEspaco.ToLower();
+
+        <div class="col-md-2">
+            <h2> @Html.DisplayFor(modelItem => item.nome)</h2>
+
+
+            <a href="~/Files/Game/@nomeSemEspaco/index.html">
+                <img src="~/Files/Image/@Html.DisplayFor(modelItem => item.Imagem.caminho)" alt="sem imagem" />
+            </a>
+
+
+
+
+        </div>
+    }
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PackGameData.DataContext.Jogo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <img src="~/Files/Image/" alt="sem imagem"/>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web appli altcations using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<h2></h2>
+
+<p>
+    @Html.ActionLink("Area Jogo", "../jogo/index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Etapa.etapaGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genero.generoGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagem.caminho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etapa.etapaGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genero.generoGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagem.caminho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+      
+    </tr>
+}
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PackGameData.DataContext.Perfil>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomePerfil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nivel)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomePerfil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nivel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idPerfil }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idPerfil }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idPerfil })
+        </td>
+    </tr>
+}
+
+</table>

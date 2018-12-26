@@ -1,0 +1,26 @@
+﻿@model PackGameData.DataContext.Etapa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Etapa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.etapaGame)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etapaGame)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idEtapa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

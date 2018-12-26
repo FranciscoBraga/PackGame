@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PackGameData.DataContext.Jogo>
+
+@{
+    ViewBag.Title = "Meus Jogos";
+
+    
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Etapa.etapaGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genero.generoGame)
+        </th>
+        <th>
+           
+             @Html.DisplayNameFor(model => model.Imagem.caminho);
+                  
+           
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    var isUploadItem = item.isUpload;
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etapa.etapaGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genero.generoGame)
+        </td>
+        <td>
+
+
+            <img src="~/Files/Image/@Html.DisplayFor(modelItem => item.Imagem.caminho)" alt="" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.idJogo }) |
+            @Html.ActionLink("Details", "Details", new { id = item.idJogo }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.idJogo }) |
+            @if(item.isUpload.Equals("n")){
+            @Html.ActionLink("Upload", "UploadGame", new { id = item.idJogo });
+            }else
+            {
+            @Html.ActionLink("Update", "UploadGame", new { id = item.idJogo });
+            }
+
+        </td>
+
+    </tr>
+}
+
+</table>
